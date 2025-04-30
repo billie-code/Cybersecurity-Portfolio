@@ -5,7 +5,7 @@ Collection of cybersecurity labs, notes, and project work as I grow my skills.
 ### In this project I built a basic cybersecurity lab using VMware Workstation and Kali Linux to practice penetration testung and network security skills in a safe enviroment.
 
 ## Tools Used 
-VMware Workstation Player 16 (virtualization platform)
+Oracle VirtualBox (virtualization platform)
 
 Kali Linux (penetration testing distribution)
 
@@ -16,7 +16,7 @@ Host Machine (Windows)
 ## Steps Taken 
 
 ### 1. Installed Virtual Box 
-Downloaded and installed VMWare Workstation on my host machine.
+Downloaded and installed VirtualBox Workstation on my host machine.
 
 ### 2. Downloaded Kali Linux ISO 
 Retrieved the latest Kali Linux ISO from the offical website.
@@ -30,7 +30,7 @@ Installed Kali Linux inside the VM and set up basic tools (nmap, metasploit, wir
 Installed a Windows 10 VM
 
 ### 5. Created an Internal Network
-Configured VMWare Networking to "internal network" so that VM can communicate but are not touching the Internet.
+Configured VirtualBox Networking to "internal network" so that VM can communicate but are not touching the Internet.
 
 ### 6. Performed Inital Scans 
 Used nmap to discover open ports 
