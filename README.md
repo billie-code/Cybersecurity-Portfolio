@@ -37,3 +37,57 @@ Used nmap to discover open ports
 
 Practiced running basic vulnerability scans.
 
+
+
+# Windows Sysmon Setup with SwiftonSecurity Config
+This portion of my repo documents how to install and Configure Microsoft Sysmon on Windows machine using the popular [SwiftOnSecurity](https://github.com/SwiftOnSecurity/sysmon-config) configuration file. This is useful for security monitoring, threat hunting, and building logs for SOC analysis practice.
+
+## What is Sysmon? 
+Sysmon (System Monitor) is a Windows system service and device driver that logs system activity to the Windows Event Log; process creation, network connections, and file changes.
+
+## Prerequisites 
+
+- A Windows Machine (I used  a VM)
+- Admin previleges on the system
+- [Sysinternals Sysmon](https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon)
+
+## Installation Steps 
+
+### 1.Download Sysmon 
+
+Go to the offical Sysinternals page: https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon
+
+Extract the ZIP file and keep note of 'Sysmon64.exe' ( for 64-bit systems).
+
+### 2.Download the SwiftOnSecurity Config
+
+Visit the SwiftOnSecurity config file directly: [sysmonconfig-export.xml] (https://github.com/SwiftOnSecurity/sysmon-config/blob/master/sysmonconfig-export.xml)
+
+- Click **"Raw"**
+- Right-Click the page and selct **"Save As..."**
+- Save the file as 'sysmonconfig-export.xml'
+
+
+### 3.Install Sysmon with the Config File
+
+Open **Command Prompt as Administrator**, then run : 
+'''cmd 
+Sysmon64.exe -accepteula -i sysmonconfig-export.xml
+
+### Check Sysmon is running using cmd "sc query sysmon64"
+- Look for **"STATE: RUNNING"**
+
+  ### Sysmon Logs will appear in Event Viewer
+  Event Viewer >
+      Applications and Services Log >
+          Microsoft >
+              Windows >
+                  Sysmon >
+                      Operational
+  ### Logs will be listed with Event IDs
+  - Event ID 1 = Process Creation
+  - Event ID 3 = Network Connection
+  - Event ID 10 = Process Access 
+
+
+
